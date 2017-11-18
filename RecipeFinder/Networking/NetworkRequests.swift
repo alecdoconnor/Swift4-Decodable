@@ -56,9 +56,7 @@ class NetworkRequests {
                 return
             }
             do {
-                let decoder = JSONDecoder()
-                let results = try decoder.decode(Results.self, from: data)
-                let recipes = results.hits.map{ $0.recipe }
+                let recipes = [Recipe]()
                 callback(recipes, nil)
             } catch {
                 callback(nil, RecipeError.parsingFailure(error))

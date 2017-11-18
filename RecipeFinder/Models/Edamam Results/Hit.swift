@@ -8,11 +8,7 @@
 
 import Foundation
 
-struct Hit: Decodable {
-    
-    var recipe: Recipe
-    var bookmarked: Bool
-    var bought: Bool
+struct Hit {
     
 }
 
