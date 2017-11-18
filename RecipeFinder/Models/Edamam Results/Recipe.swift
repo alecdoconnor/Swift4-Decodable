@@ -38,20 +38,5 @@ struct Recipe: Decodable {
     mutating func setImage(_ image: UIImage?) {
         self.image = image
     }
-    
-    func loadImage(_ callback: @escaping ((Recipe)->Void)) {
-        // The proper way to do this is with NSOperations
-        // I will go over this in a future article!
-        if image == nil {
-            var copy = self
-            NetworkRequests.shared.grabImageAt(url: imageURL) { (image) in
-                if let image = image {
-                    copy.image = image
-                    callback(copy)
-                }
-            }
-        }
-    }
-    
 }
 
